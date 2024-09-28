@@ -22,8 +22,8 @@ const registerUser = (userDetails) => {
    return user.save();
 }
 
-const findUser = (userDetails) => {
-    const user  = new UserModel.findOne(query);
+const findUser = (query) => {
+    const user  = UserModel.findOne(query);
     return user;
 }
 

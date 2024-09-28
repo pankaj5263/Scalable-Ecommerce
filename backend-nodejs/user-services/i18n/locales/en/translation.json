@@ -1,0 +1,7 @@
+{
+    "userAlreadyRegistered": "User already registered",
+    "userRegisterSuccessfully": "User successfully registered",
+    "userDoesNotExist": "User does not exist",
+    "passwordDoesNotExist": "Password does not exist",
+    "loginUserSuccessfully": "User successfully Login"
+}
