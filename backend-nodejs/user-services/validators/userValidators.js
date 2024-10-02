@@ -20,6 +20,10 @@ const userDeleteValidator = [
   body('id').notEmpty().withMessage("id is required"),
 ];
 
+const currentUserValidator = [
+  body('id').notEmpty().withMessage("id is required"),
+]
+
 const validate = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -40,5 +44,6 @@ module.exports = {
   userUpdateValidator,
   userDeleteValidator,
   loginValidator,
+  currentUserValidator,
   validate,
 };

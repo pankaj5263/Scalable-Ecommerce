@@ -8,12 +8,13 @@ const schema = new mongoose.Schema({
     email:{
         type: String,
         required: true
-    },
+    },  
     password:{
         type: String,
-        required: true
+        required: true,
+        select: false 
     }
-});
+}, { versionKey: false });
 
 const UserModel = mongoose.model('User', schema);
 

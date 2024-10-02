@@ -19,12 +19,33 @@ const getUsers = async (req, res, next) => {
   }
 };
 
+const getCurrentUser = async (req, res, next) => {
+  try{
+    const {id} = req.body;
+    const user = await userModel.findUser({ _id: id }).select('-password -__v').lean();
+    //user does not exits
+    if (!user) {
+      return errorObject(req, "userDoesNotExist", 404);
+    }
+    const fetchedUserSuccessfully = req.t("fetchedUserSuccessfully");
+    return response({
+      res,
+      statusCode: 201,
+      message: fetchedUserSuccessfully,
+      data: user,
+    });
+
+  } catch (err) {
+     next(err);
+  }
+}
+
 const updateUserDetails = async (req, res, next) => {
   try {
     // check if user exists
     const { id, data } = req.body;
     // check if the user is already registered
-    const user = await userModel.findUser({ _id: id }).lean();
+    const user = await userModel.findUser({ _id: id }).select("-password").lean();
 
     //user does not exits
     if (!user) {
@@ -141,6 +162,7 @@ const registerUser = async (req, res, next) => {
 
 module.exports = {
   getUsers: getUsers,
+  getCurrentUser:getCurrentUser,
   loginUser: loginUser,
   registerUser: registerUser,
   updateUserDetails: updateUserDetails,
