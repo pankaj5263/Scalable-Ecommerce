@@ -27,8 +27,24 @@ const findUser = (query) => {
     return user;
 }
 
+const getAllUsers = () => {
+    const user  = UserModel.find({});
+    return user;
+}
+
+const updateUser = (query, updateData) => {
+   return UserModel.findOneAndUpdate(query, updateData, {upsert: true});
+}
+
+const deleteUser = (query) => {
+   return UserModel.deleteOne(query);
+}
+
 
 module.exports = {
     registerUser: registerUser,
-    findUser: findUser
+    findUser: findUser,
+    getAllUsers:getAllUsers,
+    updateUser:updateUser,
+    deleteUser:deleteUser,
 }

@@ -3,5 +3,8 @@
     "userRegisterSuccessfully": "User successfully registered",
     "userDoesNotExist": "User does not exist",
     "passwordDoesNotExist": "Password does not exist",
-    "loginUserSuccessfully": "User successfully Login"
+    "loginUserSuccessfully": "User successfully Login",
+    "fetchedUserSuccessfully": "User successfully fetched",
+    "updatedUserSuccessfully": "User successfully updated",
+    "deleteUserSuccessfully": "User successfully deleted"
 }
