@@ -6,5 +6,7 @@
     "loginUserSuccessfully": "User successfully Login",
     "fetchedUserSuccessfully": "User successfully fetched",
     "updatedUserSuccessfully": "User successfully updated",
-    "deleteUserSuccessfully": "User successfully deleted"
+    "deleteUserSuccessfully": "User successfully deleted",
+    "passswordUpdatedSuccessfully": "passport updated successfully",
+    "passwordDoesNotMatched": "passport does not match"
 }

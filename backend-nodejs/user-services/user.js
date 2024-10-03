@@ -20,6 +20,7 @@ userService.get('/users', userController.getUsers);
 userService.get('/users/current-user', currentUserValidator, validate, userController.getCurrentUser);
 userService.put('/users/update-user',userUpdateValidator, validate, userController.updateUserDetails)
 userService.delete('/users/delete-user', userDeleteValidator, validate, userController.deleteUser);
+userService.put('/users/update-password', userController.updatePassword);
 // user login and register API endpint
 userService.post('/users/login',loginValidator, validate, userController.loginUser);
 userService.post('/users/register',registerValidator, validate, userController.registerUser);

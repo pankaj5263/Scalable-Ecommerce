@@ -40,6 +40,42 @@ const getCurrentUser = async (req, res, next) => {
   }
 }
 
+const updatePassword = async (req, res, next) => {
+  try{
+    const { id, currentPassword,  newPassword } = req.body;
+    // check if the user is already registered
+    const user = await userModel.findUser({ _id: id }).lean();
+
+    //user does not exits
+    if (!user) {
+      return errorObject(req, "userDoesNotExist", 404);
+    }
+
+    const isMatched = await bcrypt.compare(currentPassword, user.password);
+     if(!isMatched) {
+      return errorObject(req, "passwordDoesNotMatched", 400);
+     }
+
+     const hashedPassword = await bcrypt.hash(newPassword, 10)
+
+     const updatedPassword = await userModel.updateUser(
+      { _id: id },
+      { password:hashedPassword}
+    );
+
+    const passswordUpdatedSuccessfully = req.t("passswordUpdatedSuccessfully");
+    return response({
+      res,
+      statusCode: 201,
+      message: passswordUpdatedSuccessfully,
+      data: updatedPassword,
+    });
+
+  }catch (err) {
+    next(err);
+  }
+}
+
 const updateUserDetails = async (req, res, next) => {
   try {
     // check if user exists
@@ -52,7 +88,7 @@ const updateUserDetails = async (req, res, next) => {
       return errorObject(req, "userDoesNotExist", 404);
     }
 
-    const { _id, __v, ...userData } = user;
+    const { _id, __v, password, ...userData } = user;
 
     const userUpdatedDetails = {
       ...userData,
@@ -167,4 +203,5 @@ module.exports = {
   registerUser: registerUser,
   updateUserDetails: updateUserDetails,
   deleteUser: deleteUser,
+  updatePassword:updatePassword,
 };
