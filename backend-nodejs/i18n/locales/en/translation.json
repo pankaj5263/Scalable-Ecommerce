@@ -1,0 +1,21 @@
+{
+    "userAlreadyRegistered": "User already registered",
+    "userRegisterSuccessfully": "User successfully registered",
+    "userDoesNotExist": "User does not exist",
+    "passwordDoesNotExist": "Password does not exist",
+    "loginUserSuccessfully": "User successfully Login",
+    "fetchedUserSuccessfully": "User successfully fetched",
+    "updatedUserSuccessfully": "User successfully updated",
+    "deleteUserSuccessfully": "User successfully deleted",
+    "passswordUpdatedSuccessfully": "passport updated successfully",
+    "passwordDoesNotMatched": "passport does not match",
+    "addedProductSuccessfully": "Product added successfully",
+    "editedProductSuccessfully": "Product updated successfully",
+    "deleteProductSuccessfully": "Product deleted successfully",
+    "fetchProductSuccessfully": "Fetched product successfully",
+    "fetchedVCatagoryProductSuccessfully": "Fetched Catagory wise product successfully",
+    "productDoesNotExist": "Product does not exist",
+    "ProductIdDoesNotExist": "Product Id is undefined"
+
+
+}
