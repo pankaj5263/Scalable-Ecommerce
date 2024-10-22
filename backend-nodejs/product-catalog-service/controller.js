@@ -5,8 +5,8 @@ const {response, errorObject} = require('./utils');
 const addProduct = async function(req, res, next) {
      try{
         const product = await productModel.addProduct(req.body);
-        const addedProductSuccessfully = req.t("addedProductSuccessfully");
-        return response({res, statusCode:201, message: addedProductSuccessfully, data:product});
+      //   const addedProductSuccessfully = req.t("addedProductSuccessfully");
+        return response({res, statusCode:201, message: "Product added success fully", data:product});
      } catch(error){
         next(error);
      }
@@ -41,8 +41,8 @@ const editProduct = async function(req, res, next) {
 const getProductList = async function(req, res, next) {
   try {
     const product = await productModel.getProducts({});
-    const fetchProductSuccessfully = req.t("fetchProductSuccessfully");
-    return response({res, statusCode:200, message:fetchProductSuccessfully, data:product});
+   //  const fetchProductSuccessfully = req.t("fetchProductSuccessfully");
+    return response({res, statusCode:200, message:"Product", data:product});
   } catch (error) {
      next(error);
   }

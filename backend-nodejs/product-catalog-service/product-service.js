@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');  // Step 1: Import the http module
 const { Server } = require('socket.io'); // Step 2: Import socket.io
 const productController = require('./controller');
+const cors = require('cors');
 const dbConnection = require('../config/database');
 require('dotenv').config();
 const {
@@ -17,8 +18,11 @@ const { initI18next, i18nextMiddlewareHandler } = require('../i18n');
 
 // Initialize express app
 const productService = express();
-initI18next();
-productService.use(i18nextMiddlewareHandler);
+productService.use(cors());
+
+
+// initI18next();
+// productService.use(i18nextMiddlewareHandler);
 
 const productPort = process.env.PRODUCT_SERVICES_PORT;
 
@@ -27,7 +31,7 @@ dbConnection('products');
 productService.use(express.json());
 
 // Product API endpoints
-productService.get('/', productController.getProductList);
+productService.get('/products', productController.getProductList);
 productService.get('/product-details/:productId', productController.productDetails);
 productService.post("/add-product", productController.addProduct);
 productService.put('/edit-product/:productId', productController.editProduct);

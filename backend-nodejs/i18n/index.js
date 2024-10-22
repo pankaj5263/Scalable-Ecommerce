@@ -13,6 +13,9 @@ const initI18next = () => {
       backend: {
         loadPath: path.join(__dirname, 'locales/{{lng}}/translation.json'),
       },
+      debug: true,
+      // Use this option if you want to see detailed logs
+      returnNull: false,
     });
 };
 
